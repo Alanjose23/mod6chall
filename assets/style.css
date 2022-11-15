@@ -2,7 +2,6 @@
 background-color: aquamarine;
 border-radius: 10px;
 }
-
 .container {
     padding: 2px 16px;
 }
@@ -11,4 +10,6 @@ border-radius: 10px;
     padding-top: 20px;
     width: 40%;
     border:solid;
+    background-color: aliceblue;
+    border-color: burlywood;
 }
