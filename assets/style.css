@@ -1,0 +1,14 @@
+#apititle {
+background-color: aquamarine;
+border-radius: 10px;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.card {
+    padding-top: 20px;
+    width: 40%;
+    border:solid;
+}
