@@ -13,3 +13,6 @@ border-radius: 10px;
     background-color: aliceblue;
     border-color: burlywood;
 }
+.weatherimage {
+   height: 50%;
+}
