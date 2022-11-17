@@ -13,7 +13,7 @@ function getLocation(location)  {
 }
 
 function getWeather(la,lo) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${la}&${lo}={lon}&appid=${apik}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${la}&lon=${lo}&appid=${apik}`)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
