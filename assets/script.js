@@ -1,15 +1,23 @@
-
+var apik = '54a60b82927ece1254952b9dbcf68376';
 function getLocation(location)  {
 
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=54a60b82927ece1254952b9dbcf68376`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${apik}`)
   .then((response) => response.json())
   .then((data) => {
   var cityn = data[0].name;
   var lat = data[0].lat
   var long = data[0].lon
-  console.log(cityn)
+ getWeather(lat,long);
 });
 
+}
+
+function getWeather(la,lo) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${la}&${lo}={lon}&appid=${apik}`)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+})
 }
 
 var query = document.getElementById("search-input");
