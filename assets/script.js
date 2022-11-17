@@ -31,7 +31,7 @@ function getWeather(la,lo) {
     document.querySelector('.weatherimage').setAttribute('src',icon);
     document.querySelector('.date').textContent = "date: "+date;
     document.querySelector('.cucity').textContent = "city: "+current;
-    document.querySelector('.temperature1').textContent = "temp: "+data.main.temp;
+    document.querySelector('.temperature1').textContent = "temp: "+KtoF(data.main.temp) + "degrees F";
     document.querySelector('.windspeed1').textContent = "windspeed: "+data.wind.speed;
     document.querySelector('.humidity1').textContent = "humidity: " +data.main.humidity; 
     console.log(data.uvi)
@@ -39,41 +39,46 @@ getWeatherfordays(la,lo,data.dt);
   })
 }
 
+
+function KtoF(kelvin){
+  var conversion = ((kelvin - 273.15)* 1.8) + 32;
+  return Math.round(conversion);
+}
 function getWeatherfordays(latt,long,dateon) {
   fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latt}&lon=${long}&appid=${apik}`)
   .then((response) => response.json())
   .then((data) => {
     document.querySelector('.weatherimage2').setAttribute('src',"http://openweathermap.org/img/w/"+ data.list[4].weather[0].icon + ".png");
     document.querySelector('.date2').textContent = "date: "+ moment().add(1, 'd').format('MM/DD/YYYY');
-      document.querySelector('.temperature2').textContent = "temp: "+data.list[4].main.temp;
+      document.querySelector('.temperature2').textContent = "temp: "+KtoF(data.list[4].main.temp) + "degrees F";
     document.querySelector('.windspeed2').textContent = "windspeed: "+data.list[4].wind.speed;
     document.querySelector('.humidity2').textContent = "humidity: "+data.list[4].main.humidity;
 
 
     document.querySelector('.weatherimage3').setAttribute('src',"http://openweathermap.org/img/w/"+ data.list[12].weather[0].icon + ".png");
     document.querySelector('.date3').textContent = "date: "+ moment().add(2, 'd').format('MM/DD/YYYY');
-    document.querySelector('.temperature3').textContent = "temp: "+data.list[12].main.temp;
+    document.querySelector('.temperature3').textContent = "temp: "+KtoF(data.list[12].main.temp) + "degrees F";
     document.querySelector('.windspeed3').textContent = "windspeed: "+data.list[12].wind.speed;
     document.querySelector('.humidity3').textContent = "humidity: "+data.list[12].main.humidity;  
 
 
     document.querySelector('.weatherimage4').setAttribute('src',"http://openweathermap.org/img/w/"+ data.list[20].weather[0].icon + ".png");
     document.querySelector('.date4').textContent = "date: "+ moment().add(3, 'd').format('MM/DD/YYYY');
-    document.querySelector('.temperature4').textContent = "temp: "+data.list[20].main.temp;
+    document.querySelector('.temperature4').textContent = "temp: "+KtoF(data.list[20].main.temp) + "degrees F";
     document.querySelector('.windspeed4').textContent = "windspeed: "+data.list[20].wind.speed;
     document.querySelector('.humidity4').textContent = "humidity: "+data.list[20].main.humidity;  
 
 
     document.querySelector('.weatherimage5').setAttribute('src',"http://openweathermap.org/img/w/"+ data.list[28].weather[0].icon + ".png");
     document.querySelector('.date5').textContent = "date: "+ moment().add(4, 'd').format('MM/DD/YYYY');
-    document.querySelector('.temperature5').textContent = "temp: "+data.list[28].main.temp;
+    document.querySelector('.temperature5').textContent = "temp: "+KtoF(data.list[28].main.temp) + "degrees F";
     document.querySelector('.windspeed5').textContent = "windspeed: "+data.list[28].wind.speed;
     document.querySelector('.humidity5').textContent = "humidity: "+data.list[28].main.humidity;  
 
 
     document.querySelector('.weatherimage6').setAttribute('src',"http://openweathermap.org/img/w/"+ data.list[36].weather[0].icon + ".png");
     document.querySelector('.date6').textContent = "date: "+ moment().add(5, 'd').format('MM/DD/YYYY');
-    document.querySelector('.temperature6').textContent = "temp: "+data.list[36].main.temp;
+    document.querySelector('.temperature6').textContent = "temp: "+KtoF(data.list[36].main.temp) + "degrees F";
     document.querySelector('.windspeed6').textContent = "windspeed: "+data.list[36].wind.speed;
     document.querySelector('.humidity6').textContent = "humidity: "+data.list[36].main.humidity;  
     
