@@ -24,7 +24,7 @@ function getWeather(la,lo) {
   .then((response) => response.json())
   .then((data) => {
     var current = data.name;
-    console.log(data);
+
     var date = moment().format("MM/DD/YYYY");
     var icon = 'http://openweathermap.org/img/w/'+data.weather[0].icon+".png";
     
@@ -34,7 +34,7 @@ function getWeather(la,lo) {
     document.querySelector('.temperature1').textContent = "temp: "+KtoF(data.main.temp) + "degrees F";
     document.querySelector('.windspeed1').textContent = "windspeed: "+data.wind.speed;
     document.querySelector('.humidity1').textContent = "humidity: " +data.main.humidity; 
-    console.log(data.uvi)
+
 getWeatherfordays(la,lo,data.dt);
   })
 }
@@ -83,7 +83,7 @@ function getWeatherfordays(latt,long,dateon) {
     document.querySelector('.humidity6').textContent = "humidity: "+data.list[36].main.humidity;  
     
     // every 8th moment is the weather for the next day
-    console.log(data);
+
   })}
 
 var query = document.getElementById("search-input");
